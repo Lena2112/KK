@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <iostream>
 
 using namespace std;
@@ -7,7 +7,7 @@ bool ValidateInput(int argc)
 {
 	if (argc != 4)
 	{
-		cout << "Óêàæèòå äëèíû ñòîðîí â êà÷åñòâå ïàðàìåòðîâ. Ôîðìàò ââîäà: triangle.exe a b c" << endl;
+		cout << "Ð£ÐºÐ°Ð¶Ð¸Ñ‚Ðµ Ð´Ð»Ð¸Ð½Ñ‹ ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð². Ð¤Ð¾Ñ€Ð¼Ð°Ñ‚ Ð²Ð²Ð¾Ð´Ð°: triangle.exe a b c" << endl;
 		return false;
 	}
 	return true;
@@ -33,18 +33,18 @@ int main(int argc, char * argv[])
 
 	if (a <= 0 || b <= 0 || c <= 0)
 	{
-		cout << "äëèíû ñòîðîí äîëæíû áûòü áîëüøå 0!" << endl;
+		cout << "Ð´Ð»Ð¸Ð½Ñ‹ ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ 0!" << endl;
 		return 1;
 	}
 
 	if (!(CorrectValue(a, b, c) && CorrectValue(b, c, a) && CorrectValue(c, a, b)))
-		cout << "íå òðåóãîëüíèê";
+		cout << "Ð½Ðµ Ñ‚Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº";
 	else if (a == b && b == c)
-		cout << "ðàâíîñòîðîííèé";
+		cout << "Ñ€Ð°Ð²Ð½Ð¾ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð½Ð¸Ð¹";
 	else if (a == b && b != c || b == c && c != a || c == a && a != b)
-		cout << "ðàâíîáåäðåííûé";
+		cout << "Ñ€Ð°Ð²Ð½Ð¾Ð±ÐµÐ´Ñ€ÐµÐ½Ð½Ñ‹Ð¹";
 	else
-		cout << "îáû÷íûé";
+		cout << "Ð¾Ð±Ñ‹Ñ‡Ð½Ñ‹Ð¹";
 	cout << endl;
 
 	return 0;
