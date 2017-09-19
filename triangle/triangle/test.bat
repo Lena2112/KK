@@ -1,27 +1,31 @@
-п»їset PROGRAM="%~1" 
+set PROGRAM="%~1" 
 
-rem СЂР°РЅРѕСЃС‚РѕСЂРѕРЅРЅРёР№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє
+rem раносторонний треугольник
 %PROGRAM% 5 5 5 
 if ERRORLEVEL 1 goto err 
 
-rem СЂР°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє
+rem равнобедренный треугольник
 %PROGRAM% 6 6 9 
 if ERRORLEVEL 1 goto err 
 
-rem РѕР±С‹С‡РЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє
+rem обычный треугольник
 %PROGRAM% 3 4 5
 if ERRORLEVEL 1 goto err 
 
-rem РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРј
+rem не может быть треугольником
 %PROGRAM% 1 5 3 
 if ERRORLEVEL 1 goto err
 
-rem СЃС‚РѕСЂРѕРЅС‹ РЅРµ РјРѕРіСѓС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹РјРё
+rem стороны не могут быть отрицательными
 %PROGRAM%  0 4 -2
 if NOT ERRORLEVEL 1 goto err
 
-rem РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°СЂР°РјРµС‚СЂРѕРІ
+rem недостаточно параметров
 %PROGRAM% 
+if NOT ERRORLEVEL 1 goto err
+
+rem некорректный аргумент
+%PROGRAM% 3 m 7
 if NOT ERRORLEVEL 1 goto err
 
 echo Program testing succeeded 

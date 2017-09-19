@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -13,27 +14,37 @@ bool ValidateInput(int argc)
 	return true;
 }
 
-bool CorrectValue(int a, int b, int c)
+bool CorrectValue(long double a, long double b, long double c)
 {
 	return a <= b + c;
 }
 
 int main(int argc, char * argv[])
 {
+	setlocale(LC_CTYPE, "Russian");
 	if (!ValidateInput(argc))
 	{
 		return 1;
 	}
 
-	setlocale(LC_ALL, "RUS");
-
-	float a = atoi(argv[1]);
-	float b = atoi(argv[2]);
-	float c = atoi(argv[3]);
+	long double a = 0;
+	long double b = 0;
+	long double c = 0;
+	try
+	{
+		a = stod(argv[1]);
+		b = stod(argv[2]);
+		c = stod(argv[3]);
+	}
+	catch(const logic_error)
+	{
+		cout << "Стороны - числа! Не иначе." << endl;
+		return 1;
+	}
 
 	if (a <= 0 || b <= 0 || c <= 0)
 	{
-		cout << "длины сторон должны быть больше 0!" << endl;
+		cout << "Длины сторон должны быть больше 0!" << endl;
 		return 1;
 	}
 
