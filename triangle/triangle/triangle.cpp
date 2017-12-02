@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ bool ValidateInput(int argc)
 	return true;
 }
 
-bool CorrectValue(long double a, long double b, long double c)
+bool CorrectValue(double a, double b, double c)
 {
 	return a <= b + c;
 }
@@ -26,21 +27,16 @@ int main(int argc, char * argv[])
 	{
 		return 1;
 	}
-
-	long double a = 0;
-	long double b = 0;
-	long double c = 0;
-	try
+	regex validateNumber("^[0-9]*[.]?[0-9]+$");
+	if (!regex_match(argv[1], validateNumber) || !regex_match(argv[2], validateNumber) || !regex_match(argv[3], validateNumber))
 	{
-		a = stod(argv[1]);
-		b = stod(argv[2]);
-		c = stod(argv[3]);
-	}
-	catch(const logic_error)
-	{
-		cout << "Стороны - числа! Не иначе." << endl;
+		cout << "Некорректная длина стороны." << endl;
 		return 1;
 	}
+
+	double a = stod(argv[1]);
+	double b = stod(argv[2]);
+	double c = stod(argv[3]);
 
 	if (a <= 0 || b <= 0 || c <= 0)
 	{

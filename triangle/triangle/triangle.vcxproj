@@ -98,7 +98,8 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>test.bat "$(TargetPath)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
     <PreLinkEvent>
       <Command>
